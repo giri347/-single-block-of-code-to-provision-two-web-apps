@@ -45,6 +45,8 @@ stages:
              provider: 'azurerm'
              command: 'validate'
   - stage: prod
+    dependsOn: dev
+    displayName: terraform testing
     jobs:
       - job: prod
         
