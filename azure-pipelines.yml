@@ -17,15 +17,20 @@ trigger:
 
 pool:
   vmImage: 'windows-latest'
+  demands:- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: 'latest'
+   
+
 
 stages:
   - stage: dev
     jobs:
       - job: dev
         steps:
-          - task: TerraformInstaller@0
-            inputs:
-             terraformVersion: 'latest'
+          # - task: TerraformInstaller@0
+          #   inputs:
+          #    terraformVersion: 'latest'
           - task: TerraformTaskV3@3
             inputs:
               provider: 'azurerm'
@@ -44,9 +49,9 @@ stages:
       - job: prod
         
         steps:
-          - task: TerraformInstaller@0
-            inputs:
-             terraformVersion: 'latest'
+          # - task: TerraformInstaller@0
+          #   inputs:
+          #    terraformVersion: 'latest'
           - task: TerraformTaskV3@3
             inputs:
              provider: 'azurerm'
