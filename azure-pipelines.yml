@@ -28,11 +28,11 @@ stages:
     jobs:
       - job: dev
         steps:
-          # - task: TerraformInstaller@0
-          #   inputs:
-          #    terraformVersion: 'latest'
-          - task: TerraformTaskV3@3
-            inputs:
+           - task: TerraformInstaller@0
+             inputs:
+              terraformVersion: 'latest'
+           - task: TerraformTaskV3@3
+             inputs:
               provider: 'azurerm'
               command: 'init'
               backendServiceArm: 'einfo-terraform'
@@ -40,10 +40,10 @@ stages:
               backendAzureRmStorageAccountName: 'store15529900'
               backendAzureRmContainerName: 'container1'
               backendAzureRmKey: 'terraform.tfstate'
-          - task: TerraformTaskV3@3
-            inputs:
-             provider: 'azurerm'
-             command: 'validate'
+           - task: TerraformTaskV3@3
+             inputs:
+              provider: 'azurerm'
+              command: 'validate'
   - stage: prod
     dependsOn: dev
     displayName: terraform testing
@@ -51,9 +51,9 @@ stages:
       - job: prod
         
         steps:
-          # - task: TerraformInstaller@0
-          #   inputs:
-          #    terraformVersion: 'latest'
+          - task: TerraformInstaller@0
+            inputs:
+              terraformVersion: 'latest'
           - task: TerraformTaskV3@3
             inputs:
              provider: 'azurerm'
@@ -72,6 +72,12 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'apply'
+              commandOptions: '-auto-approve'
+              environmentServiceNameAzureRM: 'einfo-terraform'
+          - task: TerraformTaskV3@3
+            inputs:
+              provider: 'azurerm'
+              command: 'destroy'
               commandOptions: '-auto-approve'
               environmentServiceNameAzureRM: 'einfo-terraform'
   
