@@ -4,9 +4,9 @@
 # https://aka.ms/yaml
 
 resources:
- repositories:
-   - repository: -single-block-of-code-to-provision-two-web-apps
-     name: giri347/-single-block-of-code-to-provision-two-web-apps
+ repositories: adopipeline_two_stages
+   - repository: 
+     name: giri347/adopipeline_two_stages
      type: github
      endpoint: giri347
      
