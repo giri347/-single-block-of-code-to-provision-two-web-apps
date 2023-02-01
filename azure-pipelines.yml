@@ -3,13 +3,6 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-resources:
- repositories: adopipeline_two_stages
-   - repository: 
-     name: giri347/adopipeline_two_stages
-     type: github
-     endpoint: giri347
-     
 
        
 trigger:
