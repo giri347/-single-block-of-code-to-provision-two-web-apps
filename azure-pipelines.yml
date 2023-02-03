@@ -67,12 +67,12 @@ stages:
               command: 'apply'
               commandOptions: '-auto-approve'
               environmentServiceNameAzureRM: 'einfo-terraform'
-          - task: TerraformTaskV3@3
-            inputs:
-              provider: 'azurerm'
-              command: 'destroy'
-              commandOptions: '-auto-approve'
-              environmentServiceNameAzureRM: 'einfo-terraform'
+          # - task: TerraformTaskV3@3
+          #   inputs:
+          #     provider: 'azurerm'
+          #     command: 'destroy'
+          #     commandOptions: '-auto-approve'
+          #     environmentServiceNameAzureRM: 'einfo-terraform'
   
 
 
